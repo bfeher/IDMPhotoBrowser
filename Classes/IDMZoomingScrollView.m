@@ -26,6 +26,7 @@
 @end
 
 @implementation IDMZoomingScrollView
+CGFloat const kMaxZoom = 4.0;   // (4 = 2x)
 
 @synthesize photoImageView = _photoImageView, photoBrowser = _photoBrowser, photo = _photo, captionView = _captionView;
 
@@ -179,7 +180,7 @@
 	}
     
 	// Calculate Max
-	CGFloat maxScale = 4.0; // Allow double scale
+	CGFloat maxScale = kMaxZoom; // Allow double scale
     // on high resolution screens we have double the pixel density, so we will be seeing every pixel if we limit the
     // maximum zoom scale to 0.5.
 	if ([UIScreen instancesRespondToSelector:@selector(scale)]) {
